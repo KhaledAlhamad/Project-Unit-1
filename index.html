@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">    <link rel="stylesheet" href="style.css">
+    <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="/style.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light " style="background-color: white;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">MovieDB</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Movies</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">People</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About Us</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#" tabindex="-1" aria-disabled="true">Support</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+
+
+      <!-- <section id="carousel">
+        <div id="carousel-home" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-home" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-home" data-slide-to="1"></li>
+                <li data-target="#carousel-home" data-slide-to="2"></li>
+            </ol>
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <img src="/images/dune.jpg" width="100%" alt="Woman taking picture with a camera">
+                    
+                    <div class="carousel-caption">
+                        <h3>A woman with a camera</h3>
+                        <p>She is probably taking a picture</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/venom.jpeg" alt="A wet spiderweb">
+                    
+                    <div class="carousel-caption">
+                        <h3>Down came the rain</h3>
+                        <p>And washed the spider out</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="img/hearthand.jpg" alt="Two hands making a heart">
+                    
+                    <div class="carousel-caption">
+                        <h3>Making love</h3>
+                        <p>With their hands...</p>
+                    </div>
+                </div>
+            </div>
+            <a class="left carousel-control" href="#carousel-home" role="button" data-slide="prev">
+                <span class="icon-prev" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-home" role="button" data-slide="next">
+                <span class="icon-next" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </section> -->
+
+
+    
+    
+    <div id="moviesCarousel" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#moviesCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#moviesCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#moviesCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="/images/dune.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+              <h5>What's on</h5>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/images/venom.jpg"  class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img src="/images/no.jpg" class="d-block w-100" alt="...">
+            <div class="carousel-caption d-none d-md-block">
+            </div>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#moviesCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#moviesCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div><br><br>
+
+
+    <!-- <div id="movies"> -->
+
+        <!-- <div class="card" style="width: 18rem; margin-bottom: 100px;">
+            <img src="" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">Card title</h5>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div> -->
+
+    <!-- </div> -->
+
+
+    
+
+        
+            <div class="container">
+                <div class="row flex-column-reverse flex-md-row movie">
+                    <h3 class="d-flex justify-content-center">Popular</h3>
+                    <!-- <h1 style="display: flex; justify-content: center;"> Popular </h1><br><br> -->
+                        <!-- <div class="col-md-4">
+                            <div class="card">   
+                                <div class="card-header">
+                                    <img class="card-img" src="https://image.tmdb.org/t/p/w500/rjkmN1dniUHVYAtwuV3Tji7FsDO.jpg" alt="Card image">
+                                </div>  
+                                <div class="card-body">
+                                    <h1 class="card-title">Interstellar</h1>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col-4 metadata">
+                                            <i class="fa fa-star" aria-hidden="true"></i> 
+                                            <p>9.5/10</p>
+                                            </div>
+                                            <div class="col-8 metadata">Adventure. Sci-Fi</div>
+                                        </div>
+                                    </div>      
+                                    <p class="card-text">A team of explorers travel through wormhole in space in an attempt to ensure humanity's survival.</p>
+                                    <a class="trailer-preview" href="https://youtu.be/ePbKGoIGAXY" target="new">
+                                        <i class="fa fa-play" aria-hidden="true"></i>
+                                        </a>
+                                </div>
+                            </div>
+                         </div>   -->
+                </div>
+            </div>
+
+
+
+
+
+    <!-- <div class="people">
+       
+        <div class="row">
+            <div class="person1 col-md-4">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At quisquam nostrum quam veniam dolorum ut provident tenetur, velit quas temporibus obcaecati voluptates soluta illo perferendis aspernatur vel vitae repellendus adipisci.</p>
+            </div>
+            <div class="person2 col-md-4">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At quisquam nostrum quam veniam dolorum ut provident tenetur, velit quas temporibus obcaecati voluptates soluta illo perferendis aspernatur vel vitae repellendus adipisci.</p>
+            </div>
+            <div class="person3 col-md-4">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. At quisquam nostrum quam veniam dolorum ut provident tenetur, velit quas temporibus obcaecati voluptates soluta illo perferendis aspernatur vel vitae repellendus adipisci.</p>
+            </div>
+            
+        </div>
+    </div> -->
+
+    
+
+
+    
+    <script src="/main.js"></script>
+    <script src="/tmdb.js"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+</body>
+</html>
