@@ -1,0 +1,198 @@
+getMovie(){
+        // slide.innerHTML = `
+                // <div class="carousel-item active">
+                //     <img src="https://artworks.thetvdb.com${img}"  class="d-block w-100" alt="...">
+                //     <div class="carousel-caption d-none d-md-block">
+                //     ${img}
+                //     </div>
+                // </div>` 
+
+            // for (let i = 1; i < 3; i++) {
+            //     const img = data[i].image;
+            //     let slide = document.querySelector('.carousel-inner')
+                
+            //     slide.innerHTML += `
+            //     <div class="carousel-item">
+            //         <img src="https://artworks.thetvdb.com${img}"  class="d-block w-100" alt="...">
+            //         <div class="carousel-caption d-none d-md-block">
+            //         ${img}
+            //         </div>
+            //     </div>`                            
+            // }
+
+            // // Movie card 
+            // let movieCard = document.querySelector("#movies");
+            // for(let i=4 ; i< 20 ;i++){
+            //     movieCard.innerHTML +=`
+                
+            //         <div class="card" style="width: 18rem;">
+            //             <img src="https://artworks.thetvdb.com${data[i].image}" class="card-img-top" alt="...">
+            //             <div class="card-body">
+            //                 <h5 class="card-title">${data[i].name}</h5>
+            //                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            //                 <a href="#" class="btn btn-primary">Go somewhere</a>
+            //             </div>
+            //         </div>
+               
+            //     `
+            // }
+}
+
+getMovieCard(){
+     // for(let i=0 ; i< 20 ;i++){
+            //     const img = results.results[i].poster_path;
+            //     movieCard.innerHTML +=`
+                
+            //         <div class="card" style="width: 18rem;">
+            //             <img src="https://image.tmdb.org/t/p/w500/${img}" class="card-img-top" alt="...">
+            //             <div class="card-body">
+            //                 <h5 class="card-title"></h5>
+            //                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            //                 <a href="#" class="btn btn-primary">Go somewhere</a>
+            //             </div>
+            //         </div>
+            //     `
+            // }
+}
+
+getPeople(){
+    // data.results.map(character => {
+        //     let peopleCard = document.querySelector(".people");
+
+        //     let name = character.name;
+        //     let img = character.profile_path
+        //     peopleCard.innerHTML += `
+        //     <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+        //             <div class="card people-card">   
+        //                     <div class="card-header">
+        //                         <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
+        //                     </div>  
+        //                     <div class="card-body">
+        //                         <a class="card-title">${name}</a>
+        //                     </div>      
+        //             </div>
+        //         </div>
+        // `
+            
+        // })
+
+        // peopleCard.innerHTML +=`
+                
+        //         <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+        //             <div class="card people-card">   
+        //                     <div class="card-header">
+        //                         <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
+        //                     </div>  
+        //                     <div class="card-body">
+        //                         <a class="card-title">${name}</a>
+        //                     </div>      
+        //             </div>
+        //         </div>
+
+
+        //         <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+        //             <div class="card">   
+        //                     <div class="card-header">
+        //                         <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
+        //                     </div>  
+        //                     <div class="card-body">
+        //                         <h3 class="card-title">${name}</h3>
+        //                     </div>      
+        //             </div>
+        //         </div>
+        //         `
+
+        
+
+
+
+
+
+        // data.results.map(character => {
+        //     let div = document.createElement('div');
+        //     div.classList.add('single-character');
+        //     div.innerHTML = `${data}`
+        //     document.getElementById('movie').append(div);
+            
+        // })
+
+
+}
+
+getMovieDetail(){
+    
+                // Carousel
+                // const img = data[0].image;
+                // let slide = document.querySelector('.carousel-inner')
+                    
+                    // slide.innerHTML = `
+                    // <div class="carousel-item active">
+                    //     <img src="https://artworks.thetvdb.com${img}"  class="d-block w-100" alt="...">
+                    //     <div class="carousel-caption d-none d-md-block">
+                    //     ${img}
+                    //     </div>
+                    // </div>` 
+    
+                // for (let i = 1; i < 3; i++) {
+                //     const img = data[i].image;
+                //     let slide = document.querySelector('.carousel-inner')
+                    
+                //     slide.innerHTML += `
+                //     <div class="carousel-item">
+                //         <img src="https://artworks.thetvdb.com${img}"  class="d-block w-100" alt="...">
+                //         <div class="carousel-caption d-none d-md-block">
+                //         ${img}
+                //         </div>
+                //     </div>`                            
+                // }
+    
+                // // Movie card 
+                // let movieCard = document.querySelector("#movies");
+                // for(let i=4 ; i< 20 ;i++){
+                //     movieCard.innerHTML +=`
+                    
+                //         <div class="card" style="width: 18rem;">
+                //             <img src="https://artworks.thetvdb.com${data[i].image}" class="card-img-top" alt="...">
+                //             <div class="card-body">
+                //                 <h5 class="card-title">${data[i].name}</h5>
+                //                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                //                 <a href="#" class="btn btn-primary">Go somewhere</a>
+                //             </div>
+                //         </div>
+                   
+                //     `
+                // }
+    
+               
+}
+
+---------------------------------------------------
+ //         var div = document.createElement('div')
+    //         div.classList.add('single-movie')
+    //         div.innerHTML = `<img src="https://artworks.thetvdb.com${movie.image}" alt=${movie.name} /><h3>${movie.name}</h3>`
+    //         document.getElementById('movies').append(div)
+            
+            // var div = document.createElement('div')
+            // div.classList.add('carousel-item')
+
+
+            // let movie = document.createElement(div,'carousel-item');
+            
+
+            // var div = document.createElement('div')
+            // div.classList.add('single-movie')
+            // div.innerHTML = `<img src="https://artworks.thetvdb.com${results.data[0].image}" alt=${results.data[0].name} /><h3>${results.data[0].name}</h3>`
+            // document.getElementById('movies').append(div)
+
+
+    
+            // results.data.map(movie => {
+   
+
+            //     // let slide = document.querySelector('.carousel-inner')
+            //     // let img = movie.image
+            //     // console.log(img)
+    
+            
+    
+            // })

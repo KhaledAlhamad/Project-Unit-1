@@ -4,9 +4,10 @@ body{
     /* width: 100vh; */
 }     
 h3{
-    color: #f5c518;
+    color: #ff3d49;
     /* font-weight: 600px; */
     font-weight: bold;
+    
 }
 /* navbar */
 .navbar-collapse{
@@ -16,6 +17,13 @@ h3{
 
 .navbar-brand {
     padding-left: 50px;
+    font-weight:700;
+    font-family: "Open Sans", sans-serif;
+    font-size:  1.35rem;
+    
+}
+.navbar-light .navbar-brand {
+    color: crimson;
 }
 
 .navbar-nav > li{
@@ -27,7 +35,7 @@ h3{
 
   
 .carousel-item img {
-      height: 80vh;
+      height: 93vh;
   }
 
 /* .people{
@@ -59,15 +67,23 @@ h3{
     }
 
 } */
+.people-card{
+    width: 235px;
+    height: 289px;
+}
 
+.people-card .card-title{
+    font-size: 1.1em;
+    text-decoration: none;
+}
 
 /* ------------------------------------------------ */
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
  @import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great");
  body {
-	 /* background-color: #f8fafb; */
-     background-color: black;
+	 background-color: #f8fafb;
+     /* background-color: black; */
 
 	 font-family: "Open Sans", sans-serif;
 	 /* padding-top: 10%; */
@@ -113,8 +129,8 @@ h3{
  .card-body .card-title {
 	 font-weight: 600;
 	 color: #414345;
+     
 }
-
 
  .card-body .card-text {
     margin-top: 8px;
@@ -184,3 +200,12 @@ h3{
 	 margin-left: 5px;
 }
  
+.carousel-caption .trailer-preview{
+    background-color: black;
+
+}
+.carousel-caption .trailer-preview:hover, .trailer-preview:disabled, .trailer-preview:active, .trailer-preview:focus {
+    /* background-color: #f5c518; */
+    background-color: #ff3d49;
+    /* color: #f5c518; */
+}
