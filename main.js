@@ -51,7 +51,7 @@ function getMovieCard(){
                         </div>  
                         <div class="card-body">
                         <!--    <h3 class="card-title btn" onClick="href='movie.html'">${title}</h3> -->
-                            <a class="card-title btn" id="${id}" onClick="getMovieDetail(${id})">${title}</a>
+                            <a class="card-title btn" id="${id}" onClick="movieSelected(${id})">${title}</a>
                             <div class="container">
                                 <div class="row">
                                     <div class="col-4 metadata">
@@ -123,13 +123,15 @@ function getPeople(){
 
 getPeople();
 
+function movieSelected(id){
+    sessionStorage.setItem('movieId',id);
+    window.location = "movie.html";
+    return false;
+}
 
 
-function getMovieDetail(id){
-    // sessionStorage.setItem('movieId',id);
-    // window.location = "movie.html";
-
-
+function getMovieDetail(){
+    id = sessionStorage.getItem('movieId');
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=0c961ffcf84c2043d100edeeab29551a` , {
         "method": "GET",
     }).then((response) => {
@@ -138,16 +140,16 @@ function getMovieDetail(id){
     }).then(
         results => {
 
-            // let movieCard = document.querySelector(".movieDetails"); 
-            // const title = results.original_title;
-            // const img = results.poster_path;
-            // const desc = results.overview;
+            let movieCard = document.querySelector(".movieDetails"); 
+            const title = results.original_title;
+            const img = results.poster_path;
+            const desc = results.overview;
 
-            // movieCard.innerHTML +=`
-            // <p class="card-text">${desc}</p>
-            //  <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
+            movieCard.innerHTML +=`
+            <p class="card-text">${desc}</p>
+             <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
              
-            //  `
+             `
 
                 
                 // const data = results.data
@@ -163,7 +165,7 @@ function getMovieDetail(id){
 }
 
 
-// getMovieDetail();
+getMovieDetail();
 
 
 
