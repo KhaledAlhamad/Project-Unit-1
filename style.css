@@ -2,13 +2,20 @@
 body{
     /* background-color: black; */
     /* width: 100vh; */
-}     
+}  
+h2{
+    /* font-weight: 600px; */
+    font-weight: bold;  
+    text-shadow: 2px ;
+
+}   
 h3{
     color: #ff3d49;
     /* font-weight: 600px; */
-    font-weight: bold;
-    
+    font-weight: bold;  
 }
+
+
 /* navbar */
 .navbar-collapse{
     display: flex;
