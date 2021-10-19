@@ -50,7 +50,7 @@ function getMovieCard(){
                             <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
                         </div>  
                         <div class="card-body">
-                        <!--    <h3 class="card-title btn" onClick="href='movie.html'">${title}</h3> -->
+                        <!--    <h3 class="card-title btn" onClick="href='details.html'">${title}</h3> -->
                             <a class="card-title btn" id="${id}" onClick="movieSelected(${id})">${title}</a>
                             <div class="container">
                                 <div class="row">
@@ -125,7 +125,7 @@ getPeople();
 
 function movieSelected(id){
     sessionStorage.setItem('movieId',id);
-    window.location = "movie.html";
+    window.location = "details.html";
     return false;
 }
 
@@ -139,18 +139,53 @@ function getMovieDetail(){
         return response.json();
     }).then(
         results => {
+            
+            let movieDetails = document.querySelector(".container"); 
+            let title = results.original_title;
+            let img = results.backdrop_path;
+            img = `https://image.tmdb.org/t/p/original/${img}`
+            let desc = results.overview;
+            let genres = results.genres;
+            // console.log("gener ==" + genres[0].name);
 
-            let movieCard = document.querySelector(".movieDetails"); 
-            const title = results.original_title;
-            const img = results.poster_path;
-            const desc = results.overview;
 
-            movieCard.innerHTML +=`
-            <p class="card-text">${desc}</p>
-             <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
+            let background = document.getElementById('mainContainer');
+            background.setAttribute('style',"background-image: url("+ img +");");
+
+            let cover = document.querySelector('.container');
+            cover.setAttribute('style',"background-image: url("+ img +");");
+
+            
+
+            movieDetails.innerHTML +=`
+                <div id="left">
+                    <h1>SPECTRE</h1>
+                    <div id="info">
+                        <ul id="menu">
+                        <li>2015</li>
+                        <li>148 min</li>
+                        <li>${genres[0].name}&nbsp;&nbsp;&nbsp;|</li>
+                        <li>Adventure&nbsp;&nbsp;&nbsp;|</li>
+                        <li>Thriller</li>
+                        </ul>
+                    </div>
+                    <div id="rating">
+                        <h3>IMDb Rating:</h3>
+                        <div id="container"></div>
+                    </div>
+                </div>
+                <div id="right">
+                ${desc}
+                <div id="trailer">
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                    <h4>WATCH TRAILER<h4>
+                </div>
+                 </div>
+
+            
              
              `
-
+            //  <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
                 
                 // const data = results.data
                 console.log("details "+results.original_title)
@@ -163,10 +198,27 @@ function getMovieDetail(){
         console.log('rejected', err)
     });
 }
-
-
 getMovieDetail();
 
+// movie details 
+
+var bar = new ProgressBar.Circle(container, {
+    strokeWidth: 10,
+    easing: 'easeInOut',
+    duration: 1400,
+    color: '#f92b1e',
+    trailColor: '#BDC3C7',
+    trailWidth: 5,
+    svgStyle: null
+  });
+  
+  bar.setText('6.8');
+  bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+  bar.text.style.fontSize = '0.9rem';
+  bar.text.style.color='#ECF0F1';
+  bar.animate(0.68);  // Number from 0.0 to 1.0
+
+//   movie details end 
 
 
 // <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
