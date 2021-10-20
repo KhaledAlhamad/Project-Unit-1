@@ -266,7 +266,7 @@ function getTVDetail(){
         console.log('rejected', err)
     });
 }
-getTVDetail();
+// getTVDetail();
 
 
 
