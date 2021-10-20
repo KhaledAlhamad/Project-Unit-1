@@ -21,8 +21,9 @@
   }
   div.container{
     /* width:881.6px; */
-    width: 100vw;
+    /* width: 100%; */
     /* height:522.4px; */
+
     /* background-image:url("http://i.imgrpost.com/imgr/2017/07/18/bond.jpg"); */
     background-size: cover;
     box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
@@ -76,6 +77,9 @@
     padding-right:10px;
     font-family: 'Raleway Dots', sans-serif;
     color:white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25),0px 0px 5px rgba(0, 0, 0, 0.25),-1px -1px 5px rgba(0, 0, 0, 0.25)
+
+    
   /*   font-weight:bold; */
   }
   #trailer{
@@ -121,14 +125,17 @@
         z-index: 1;
       }
       div.container{
-        width:881.6px;
+        width:881.6px; 
         height:522.4px;
+        /* width: 75vw;
+        height:75vh; */
+
         /* background-image:url("http://i.imgrpost.com/imgr/2017/07/18/bond.jpg"); */
         background-size: cover;
         box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25);
         position: fixed;
         top: 100px;
-        left: 320px;
+        /* left: 320px; */
         z-index: 2;
         display:flex;
       }
@@ -177,6 +184,8 @@
         font-family: 'Raleway Dots', sans-serif;
         color:white;
         /* font-weight:bold; */
+        text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.897),0px 0px 10px rgba(0, 0, 0, 0.89),-1px -1px 10px rgb(0, 0, 0)
+
       }
       #trailer{
         margin-top:50px;

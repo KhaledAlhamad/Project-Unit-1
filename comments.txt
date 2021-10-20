@@ -196,3 +196,51 @@ getMovieDetail(){
             
     
             // })
+
+
+
+            // movie details 
+
+// var bar = new ProgressBar.Circle(container, {
+//     strokeWidth: 10,
+//     easing: 'easeInOut',
+//     duration: 1400,
+//     color: '#f92b1e',
+//     trailColor: '#BDC3C7',
+//     trailWidth: 5,
+//     svgStyle: null
+//   });
+  
+//   bar.setText('6.8');
+//   bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
+//   bar.text.style.fontSize = '0.9rem';
+//   bar.text.style.color='#ECF0F1';
+//   bar.animate(0.68);  // Number from 0.0 to 1.0
+
+//   movie details end 
+
+
+// <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+//                 <div class="card">   
+//                     <div class="card-header">
+//                         <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
+//                     </div>  
+//                     <div class="card-body">
+//                     <!--    <h3 class="card-title btn" onClick="href='movie.html'">${title}</h3> -->
+//                         <a class="card-title btn" id="m${0}" onClick="href='movie.html'">${title}</a>
+//                         <div class="container">
+//                             <div class="row">
+//                                 <div class="col-4 metadata">
+//                                 <i class="fa fa-star" aria-hidden="true"></i> 
+//                                 <p>9.5/10</p>
+//                                 </div>
+//                                 <div class="col-8 metadata">Adventure. Sci-Fi</div>
+//                             </div>
+//                         </div>      
+//                         <p class="card-text">${desc}</p>
+//                         <a class="trailer-preview" href="https://youtu.be/ePbKGoIGAXY" target="new">
+//                             <i class="fa fa-play" aria-hidden="true"></i>
+//                             </a>
+//                     </div>
+//                 </div>
+//             </div>

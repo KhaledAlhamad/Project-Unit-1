@@ -22,7 +22,7 @@ function getMovies(){
                 </div>` 
 
             for (let i = 2; i < 9; i++) {
-                if(i==4 || i==6 || i==7){
+                if(i==3 || i==6 || i==5){
                     continue
                 }
                 let img = results.results[i].backdrop_path;
@@ -108,50 +108,7 @@ function getMovieCard(){
 getMovieCard()
 
 
-function getPeople(){
-    fetch('https://api.themoviedb.org/3/person/popular?api_key=0c961ffcf84c2043d100edeeab29551a' , {
-    "method": "GET",
-}).then((response) => {
-    console.log("resolve", response)
-    return response.json();
-}).then(
-    data => {
-        console.log("People "+ data.results[0].gender);
-        // let peopleCard = document.querySelector(".people");
-        // let name = data.name;
-        // let img = data.profile_path;
 
-        for(let i=0; i< data.results.length-2; i++){
-            if(data.results[i].gender == 2){
-                if(i==7){
-                    continue;
-                }
-                
-                    let peopleCard = document.querySelector(".people");
-        
-                    let name = data.results[i].name;
-                    let img = data.results[i].profile_path
-                    peopleCard.innerHTML += `
-                    <div class="col-md-6 col-lg-2 d-flex align-items-stretch justify-content-center" >
-                            <div class="card people-card" style="margin-bottom:20px">   
-                                    <div class="card-header">
-                                        <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
-                                    </div>  
-                                    <div class="card-body">
-                                        <a class="card-title">${name}</a>
-                                    </div>      
-                            </div>
-                    </div>
-                `
-            }
-        }    
-    }
-).catch((err) => {
-    console.log('rejected', err)
-});
-}
-
-getPeople();
 
 function movieSelected(id){
     sessionStorage.setItem('movieId',id);
@@ -235,48 +192,288 @@ function getMovieDetail(){
 }
 getMovieDetail();
 
-// movie details 
-
-// var bar = new ProgressBar.Circle(container, {
-//     strokeWidth: 10,
-//     easing: 'easeInOut',
-//     duration: 1400,
-//     color: '#f92b1e',
-//     trailColor: '#BDC3C7',
-//     trailWidth: 5,
-//     svgStyle: null
-//   });
-  
-//   bar.setText('6.8');
-//   bar.text.style.fontFamily = '"Raleway", Helvetica, sans-serif';
-//   bar.text.style.fontSize = '0.9rem';
-//   bar.text.style.color='#ECF0F1';
-//   bar.animate(0.68);  // Number from 0.0 to 1.0
-
-//   movie details end 
 
 
-// <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-//                 <div class="card">   
-//                     <div class="card-header">
-//                         <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
-//                     </div>  
-//                     <div class="card-body">
-//                     <!--    <h3 class="card-title btn" onClick="href='movie.html'">${title}</h3> -->
-//                         <a class="card-title btn" id="m${0}" onClick="href='movie.html'">${title}</a>
-//                         <div class="container">
-//                             <div class="row">
-//                                 <div class="col-4 metadata">
-//                                 <i class="fa fa-star" aria-hidden="true"></i> 
-//                                 <p>9.5/10</p>
+function getTop(){
+    fetch('https://api.themoviedb.org/3/movie/top_rated?api_key=0c961ffcf84c2043d100edeeab29551a' , {
+    "method": "GET",
+}).then((response) => {
+    console.log("resolve", response)
+    return response.json();
+}).then(
+    results => {
+            // const data = results.data
+            // console.log(results.results)
+            let movieCard = document.querySelector(".topMovie"); 
+
+            for(let i=0 ; i< 10 ;i++){
+                if(i==0 || i==3 | i==5 || i ==6){
+                    continue
+                }
+                const title = results.results[i].title;
+                const img = results.results[i].poster_path;
+                const desc = results.results[i].overview;
+                let id = results.results[i].id;
+                console.log("id =" + id)
+                movieCard.innerHTML +=`
+                
+                <div class="col-md-2 col-lg-2 d-flex align-items-stretch">
+                    <div class="card">   
+                        <div class="card-header">
+                            <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" id="${id}" onClick="movieSelected(${id})" alt="Card image">
+                        </div>  
+                        <div class="card-body">
+                            <h5 class="card-title">${title}</h5>
+                            <!-- <a class="card-title btn" id="${id}" onClick="movieSelected(${id})">${title}</a>  -->
+                            <div class="container">
+                                <div class="row">
+                                <!--   <div class="col-4 metadata">
+                                   <i class="fa fa-star" aria-hidden="true"></i> 
+                                    <p>9.5/10</p> 
+                                    </div>
+                                    <div class="col-8 metadata">Adventure. Sci-Fi</div>-->
+                                </div>
+                            </div>      
+                           <!-- <p class="card-text">${desc}</p>
+                            <a class="trailer-preview" href="https://youtu.be/ePbKGoIGAXY" target="new">
+                                <i class="fa fa-play" aria-hidden="true"></i>
+                                </a>  -->
+                        </div>
+                    </div>
+                </div>
+              
+                `
+            }
+        // console.log(results.data[0])
+
+    }
+).catch((err) => {
+    console.log('rejected', err)
+});
+
+}
+getTop()
+
+
+function getLatest(){
+    fetch('https://api.themoviedb.org/3/movie/now_playing?api_key=0c961ffcf84c2043d100edeeab29551a' , {
+    "method": "GET",
+}).then((response) => {
+    console.log("resolve", response)
+    return response.json();
+}).then(
+    results => {
+            // const data = results.data
+            // console.log(results.results)
+            let movieCard = document.querySelector(".nowPlaying"); 
+
+            for(let i=4 ; i< 10 ;i++){
+                // if(i==0 || i==3 | i==5 || i ==6){
+                //     continue
+                // }
+                const title = results.results[i].title;
+                const img = results.results[i].poster_path;
+                const desc = results.results[i].overview;
+                let id = results.results[i].id;
+                console.log("id =" + id)
+                movieCard.innerHTML +=`
+                
+                <div class="col-md-2 col-lg-2 d-flex align-items-stretch">
+                    <div class="card">   
+                        <div class="card-header">
+                            <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" id="${id}" onClick="movieSelected(${id})" alt="Card image">
+                        </div>  
+                        <div class="card-body">
+                            <h5 class="card-title">${title}</h5>
+                            <!-- <a class="card-title btn" id="${id}" onClick="movieSelected(${id})">${title}</a>  -->
+                            <div class="container">
+                                <div class="row">
+                                <!--   <div class="col-4 metadata">
+                                   <i class="fa fa-star" aria-hidden="true"></i> 
+                                    <p>9.5/10</p> 
+                                    </div>
+                                    <div class="col-8 metadata">Adventure. Sci-Fi</div>-->
+                                </div>
+                            </div>      
+                           <!-- <p class="card-text">${desc}</p>
+                            <a class="trailer-preview" href="https://youtu.be/ePbKGoIGAXY" target="new">
+                                <i class="fa fa-play" aria-hidden="true"></i>
+                                </a>  -->
+                        </div>
+                    </div>
+                </div>
+              
+                `
+            }
+        // console.log(results.data[0])
+
+    }
+).catch((err) => {
+    console.log('rejected', err)
+});
+
+}
+getLatest();
+
+function getUpcoming(){
+    fetch('https://api.themoviedb.org/3/movie/upcoming?api_key=0c961ffcf84c2043d100edeeab29551a' , {
+    "method": "GET",
+}).then((response) => {
+    console.log("resolve", response)
+    return response.json();
+}).then(
+    results => {
+            // const data = results.data
+            // console.log(results.results)
+            let movieCard = document.querySelector(".upcoming"); 
+
+            for(let i=8 ; i< 14 ;i++){
+                // if(i==0 || i==3 | i==5 || i ==6){
+                //     continue
+                // }
+                const title = results.results[i].title;
+                const img = results.results[i].poster_path;
+                const desc = results.results[i].overview;
+                let id = results.results[i].id;
+                console.log("id =" + id)
+                movieCard.innerHTML +=`
+                
+                <div class="col-md-2 col-lg-2 d-flex align-items-stretch">
+                    <div class="card">   
+                        <div class="card-header">
+                            <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" id="${id}" onClick="movieSelected(${id})" alt="Card image">
+                        </div>  
+                        <div class="card-body">
+                            <h5 class="card-title">${title}</h5>
+                            <!-- <a class="card-title btn" id="${id}" onClick="movieSelected(${id})">${title}</a>  -->
+                            <div class="container">
+                                <div class="row">
+                                <!--   <div class="col-4 metadata">
+                                   <i class="fa fa-star" aria-hidden="true"></i> 
+                                    <p>9.5/10</p> 
+                                    </div>
+                                    <div class="col-8 metadata">Adventure. Sci-Fi</div>-->
+                                </div>
+                            </div>      
+                           <!-- <p class="card-text">${desc}</p>
+                            <a class="trailer-preview" href="https://youtu.be/ePbKGoIGAXY" target="new">
+                                <i class="fa fa-play" aria-hidden="true"></i>
+                                </a>  -->
+                        </div>
+                    </div>
+                </div>
+              
+                `
+            }
+        // console.log(results.data[0])
+
+    }
+).catch((err) => {
+    console.log('rejected', err)
+});
+
+}
+getUpcoming();
+
+
+function getPeople(){
+    fetch('https://api.themoviedb.org/3/person/popular?api_key=0c961ffcf84c2043d100edeeab29551a' , {
+    "method": "GET",
+}).then((response) => {
+    console.log("resolve", response)
+    return response.json();
+}).then(
+    data => {
+        console.log("People "+ data.results[0].gender);
+        // let peopleCard = document.querySelector(".people");
+        // let name = data.name;
+        // let img = data.profile_path;
+
+        for(let i=0; i< data.results.length-2; i++){
+            if(data.results[i].gender == 2){
+                if(i==7){
+                    continue;
+                }
+                
+                    let peopleCard = document.querySelector(".people");
+        
+                    let name = data.results[i].name;
+                    let img = data.results[i].profile_path
+                    peopleCard.innerHTML += `
+                    <div class="col-md-6 col-lg-2 d-flex align-items-stretch justify-content-center" >
+                            <div class="card people-card" style="margin-bottom:20px">   
+                                    <div class="card-header">
+                                        <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
+                                    </div>  
+                                    <div class="card-body">
+                                        <a class="card-title">${name}</a>
+                                    </div>      
+                            </div>
+                    </div>
+                `
+            }
+        }    
+    }
+).catch((err) => {
+    console.log('rejected', err)
+});
+}
+
+getPeople();
+
+
+// function getTV(){
+//     fetch('https://api.themoviedb.org/3/tv/top_rated?api_key=0c961ffcf84c2043d100edeeab29551a' , {
+//     "method": "GET",
+// }).then((response) => {
+//     console.log("resolve", response)
+//     return response.json();
+// }).then(
+//     results => {
+//             // const data = results.data
+//             // console.log(results.results)
+//             let movieCard = document.querySelector(".movie"); 
+
+//             for(let i=0 ; i< 6 ;i++){
+//                 const title = results.results[i].title;
+//                 const img = results.results[i].poster_path;
+//                 const desc = results.results[i].overview;
+//                 let id = results.results[i].id;
+//                 console.log("id =" + id)
+//                 movieCard.innerHTML +=`
+                
+//                 <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
+//                     <div class="card">   
+//                         <div class="card-header">
+//                             <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" id="${id}" onClick="movieSelected(${id})" alt="Card image">
+//                         </div>  
+//                         <div class="card-body">
+//                             <h4 class="card-title">${title}</h4>
+//                             <!-- <a class="card-title btn" id="${id}" onClick="movieSelected(${id})">${title}</a>  -->
+//                             <div class="container">
+//                                 <div class="row">
+//                                 <!--   <div class="col-4 metadata">
+//                                    <i class="fa fa-star" aria-hidden="true"></i> 
+//                                     <p>9.5/10</p> 
+//                                     </div>
+//                                     <div class="col-8 metadata">Adventure. Sci-Fi</div>-->
 //                                 </div>
-//                                 <div class="col-8 metadata">Adventure. Sci-Fi</div>
-//                             </div>
-//                         </div>      
-//                         <p class="card-text">${desc}</p>
-//                         <a class="trailer-preview" href="https://youtu.be/ePbKGoIGAXY" target="new">
-//                             <i class="fa fa-play" aria-hidden="true"></i>
-//                             </a>
+//                             </div>      
+//                            <!-- <p class="card-text">${desc}</p>
+//                             <a class="trailer-preview" href="https://youtu.be/ePbKGoIGAXY" target="new">
+//                                 <i class="fa fa-play" aria-hidden="true"></i>
+//                                 </a>  -->
+//                         </div>
 //                     </div>
 //                 </div>
-//             </div>
+              
+//                 `
+//             }
+//         // console.log(results.data[0])
+
+//     }
+// ).catch((err) => {
+//     console.log('rejected', err)
+// });
+
+// }
