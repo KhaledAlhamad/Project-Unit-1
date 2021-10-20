@@ -62,12 +62,12 @@ function getMovieCard(){
             // console.log(results.results)
             let movieCard = document.querySelector(".movie"); 
 
-            for(let i=0 ; i< 6 ;i++){
+            for(let i=0 ; i< 18 ;i++){
                 const title = results.results[i].title;
                 const img = results.results[i].poster_path;
                 const desc = results.results[i].overview;
                 let id = results.results[i].id;
-                console.log("id =" + id)
+                // console.log("getMovieCard id =" + id)
                 movieCard.innerHTML +=`
                 
                 <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
@@ -214,7 +214,7 @@ function getTop(){
                 const img = results.results[i].poster_path;
                 const desc = results.results[i].overview;
                 let id = results.results[i].id;
-                console.log("id =" + id)
+                // console.log("getTop id =" + id)
                 movieCard.innerHTML +=`
                 
                 <div class="col-md-2 col-lg-2 d-flex align-items-stretch">
@@ -223,7 +223,7 @@ function getTop(){
                             <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" id="${id}" onClick="movieSelected(${id})" alt="Card image">
                         </div>  
                         <div class="card-body">
-                            <h5 class="card-title">${title}</h5>
+                            <h5 class="card-title" >${title}</h5>
                             <!-- <a class="card-title btn" id="${id}" onClick="movieSelected(${id})">${title}</a>  -->
                             <div class="container">
                                 <div class="row">
@@ -275,7 +275,7 @@ function getLatest(){
                 const img = results.results[i].poster_path;
                 const desc = results.results[i].overview;
                 let id = results.results[i].id;
-                console.log("id =" + id)
+                // console.log("getLatest id =" + id)
                 movieCard.innerHTML +=`
                 
                 <div class="col-md-2 col-lg-2 d-flex align-items-stretch">
@@ -335,7 +335,7 @@ function getUpcoming(){
                 const img = results.results[i].poster_path;
                 const desc = results.results[i].overview;
                 let id = results.results[i].id;
-                console.log("id =" + id)
+                console.log("movie id =" + id)
                 movieCard.innerHTML +=`
                 
                 <div class="col-md-2 col-lg-2 d-flex align-items-stretch">
@@ -422,58 +422,32 @@ function getPeople(){
 getPeople();
 
 
-// function getTV(){
-//     fetch('https://api.themoviedb.org/3/tv/top_rated?api_key=0c961ffcf84c2043d100edeeab29551a' , {
-//     "method": "GET",
-// }).then((response) => {
-//     console.log("resolve", response)
-//     return response.json();
-// }).then(
-//     results => {
-//             // const data = results.data
-//             // console.log(results.results)
-//             let movieCard = document.querySelector(".movie"); 
 
-//             for(let i=0 ; i< 6 ;i++){
-//                 const title = results.results[i].title;
-//                 const img = results.results[i].poster_path;
-//                 const desc = results.results[i].overview;
-//                 let id = results.results[i].id;
-//                 console.log("id =" + id)
-//                 movieCard.innerHTML +=`
-                
-//                 <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
-//                     <div class="card">   
-//                         <div class="card-header">
-//                             <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" id="${id}" onClick="movieSelected(${id})" alt="Card image">
-//                         </div>  
-//                         <div class="card-body">
-//                             <h4 class="card-title">${title}</h4>
-//                             <!-- <a class="card-title btn" id="${id}" onClick="movieSelected(${id})">${title}</a>  -->
-//                             <div class="container">
-//                                 <div class="row">
-//                                 <!--   <div class="col-4 metadata">
-//                                    <i class="fa fa-star" aria-hidden="true"></i> 
-//                                     <p>9.5/10</p> 
-//                                     </div>
-//                                     <div class="col-8 metadata">Adventure. Sci-Fi</div>-->
-//                                 </div>
-//                             </div>      
-//                            <!-- <p class="card-text">${desc}</p>
-//                             <a class="trailer-preview" href="https://youtu.be/ePbKGoIGAXY" target="new">
-//                                 <i class="fa fa-play" aria-hidden="true"></i>
-//                                 </a>  -->
-//                         </div>
+
+
+
+
+// <div id="left">
+//                     <h1>${title}</h1>
+//                     <div id="info">
+//                         <ul id="menu">
+//                     <!--    <li>${year}</li>
+//                         <li>${runtime} min</li> -->
+//                         <li>${genres[0].name}&nbsp;&nbsp;&nbsp;|</li>
+                        
+//                         </ul>
+//                     </div>
+//                     <div id="rating">
+//                         <h3>IMDb Rating:${rating}</h3>
+//                         <div id="container"></div>
 //                     </div>
 //                 </div>
-              
-//                 `
-//             }
-//         // console.log(results.data[0])
+//                 <div id="right">
+//                     ${desc}
+//                     <div id="trailer">
+                        
+//                     <! --  <h4 location.href="${website}">VISIT WEBSITE <h4> -->
+//                     </div>
+//                  </div>
 
-//     }
-// ).catch((err) => {
-//     console.log('rejected', err)
-// });
-
-// }
+            

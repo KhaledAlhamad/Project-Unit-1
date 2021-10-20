@@ -106,14 +106,14 @@ h3{
     text-decoration: none;
 }
 
-/* ------------------------------------------------ */
+/* -------------------- MovieCard---------------------------- */
 
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
  @import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great");
  body {
-	 /* background-color: #f8fafb; */
+	 background-color: #f8fafb;
 
-     background-color: black;
+     /* background-color: white; */
 
 	 font-family: "Open Sans", sans-serif;
 	 /* padding-top: 10%; */
@@ -170,7 +170,7 @@ h3{
     overflow-y: scroll;
 }
 
-/* scroll style  */
+/* ---------scroll style------------  */
 ::-webkit-scrollbar {
     width: 2px;
 }
@@ -192,7 +192,7 @@ h3{
 ::-webkit-scrollbar-thumb:window-inactive {
     background: rgba(255,0,0,0.4); 
 }
-/* scroll style end!! */
+/* -----------scroll style end!!------------- */
 
 
 
@@ -240,7 +240,7 @@ h3{
     /* color: #f5c518; */
 }
 
-/* -------------------------------------------------------------------------- */
+/* ------------------------Movie Card End------------------------------------ */
 
 /* ----------------------- Movie details page ------------------------------- */
 

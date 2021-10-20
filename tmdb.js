@@ -1,59 +1,115 @@
-function getMovies(){
-    fetch('https://api.themoviedb.org/3/movie/popular?api_key=0c961ffcf84c2043d100edeeab29551a' , {
+function getTopTV(){
+    fetch('https://api.themoviedb.org/3/tv/top_rated?api_key=0c961ffcf84c2043d100edeeab29551a' , {
     "method": "GET",
-    "headers": {Authorization: "Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2UiOiIiLCJhcGlrZXkiOiJlMTkwNjdiMi02MWNjLTRjZDAtOTQzYi1iMWUzNTQxMDhlYTYiLCJjb21tdW5pdHlfc3VwcG9ydGVkIjp0cnVlLCJleHAiOjE2MzcwOTU0NDMsImdlbmRlciI6IiIsImlkIjoiMjAwMDEwIiwiaXNfbW9kIjpmYWxzZSwiaXNfc3lzdGVtX2tleSI6ZmFsc2UsInBpbiI6IkRNUEVLTFVCIiwidXVpZCI6IiJ9.N0l_V1Pt2pePLBjrLMqn_bW018OXe3dC0OX76KzluAmnQeAx-A3tTeY2TozxIxIN5X_lGsZFWN2O3qhaD7NlbksLQY3nl_jatxTdhz4IGE7zRZzlKDNM_KrxeOZdGJVgsPe9fhRtwFinnpH9EI7HBnd-gF9JaDY1WTmPXQzOHFu_gJAYzQfCjvfmFYPV1hkv8gIg-4u98VfQpeKv5Ng-ii_IU0mpVQI1yU9_rq_EKnzSX9X9PlWZLbsk0vIl0SryS06u6b50Ffh7FnPxO9HKsnbmiJ6h3l6AdLMCJSMYw9DsncXgO7PAAA8N7xoGdYHjzhHDNSxIggdZVfw3OkGuXL95ZusZDt-jKfuxytZiauCoON4214_gW2s_a2MwRjv06dVGqdCiR1dnjoO1ZzQpGabPG_65PVChBfvxUVYVvaJ4lS2qLdaRMKzxEa2BHquNA9vO3GvsDlUm8rMe7LIUynybUB6xMBSNGvaEvI2q0yL9DtkiChEGYxZfhbAtc5W2roxxphtp34xLzyGtYdVtzf2AnaUzQCKbu0czhhPWB-l1k558Bky9UMzsjRy137uIg1RelC2VFDNBQhVikZBPWLyLJ5_kbkyrtUJrLKXbPdCJIRliVu_RwRQxC3MbXTMsa2dvwWQvRgKjgGcK-VgyYk53q_tiBBQlj_FgpFYjAzQ"}
 }).then((response) => {
     console.log("resolve", response)
     return response.json();
 }).then(
     results => {
-            
-            // const data = results.data
+            const data = results.results[7].name;
+            console.log("TV id =" + results.results[0].id);
+            let movieCard = document.querySelector(".topTV"); 
+
+            for(let i=7 ; i< 17 ;i++){
+                if(i==10 || i ==13 || i==14 || i==15){
+                    continue
+                }
+                const title = results.results[i].name;
+                const img = results.results[i].poster_path;
+                const desc = results.results[i].overview;
+                let id = results.results[i].id;
+                console.log("id =" + id)
+                movieCard.innerHTML +=`
+                
+                <div class="col-md-2 col-lg-2 d-flex align-items-stretch">
+                    <div class="card">   
+                        <div class="card-header">
+                            <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" id="${id}" onClick="tvSelected(${id})" alt="Card image">
+                        </div>  
+                        <div class="card-body">
+                            <h5 class="card-title">${title}</h5>
+                            <!-- <a class="card-title btn" id="${id}" onClick="tvSelected(${id})">${title}</a>  -->
+                            <div class="container">
+                                <div class="row">
+                                <!--   <div class="col-4 metadata">
+                                   <i class="fa fa-star" aria-hidden="true"></i> 
+                                    <p>9.5/10</p> 
+                                    </div>
+                                    <div class="col-8 metadata">Adventure. Sci-Fi</div>-->
+                                </div>
+                            </div>      
+                           <!-- <p class="card-text">${desc}</p>
+                            <a class="trailer-preview" href="https://youtu.be/ePbKGoIGAXY" target="new">
+                                <i class="fa fa-play" aria-hidden="true"></i>
+                                </a>  -->
+                        </div>
+                    </div>
+                </div>
+              
+                `
+            }
+        // console.log(results.data[0])
+
+    }
+).catch((err) => {
+    console.log('rejected', err)
+});
+
+
+}
+getTopTV();
+
+
+function getLatestTV(){
+    fetch('https://api.themoviedb.org/3/tv/on_the_air?api_key=0c961ffcf84c2043d100edeeab29551a' , {
+    "method": "GET",
+}).then((response) => {
+    console.log("resolve", response)
+    return response.json();
+}).then(
+    results => {
+            const data = results.data
             console.log(results.results)
+            let movieCard = document.querySelector(".nowPlayingTV"); 
 
-            // const img = results.results[0].poster_path;
-            // let slide = document.querySelector('.carousel-inner')
+            for(let i=4 ; i< 10 ;i++){
+                // if(i==0 || i==3 | i==5 || i ==6){
+                //     continue
+                // }
+                const title = results.results[i].name;
+                const img = results.results[i].poster_path;
+                const desc = results.results[i].overview;
+                let id = results.results[i].id;
+                console.log("id =" + id)
+                movieCard.innerHTML +=`
                 
-            //     slide.innerHTML = `
-            //     <div class="carousel-item active">
-            //         <img src="https://image.tmdb.org/t/p/w500/${img}"  class="d-block w-100" alt="...">
-            //         <div class="carousel-caption d-none d-md-block">
-            //         ${img}
-            //         </div>
-            //     </div>` 
-            
-            // for (let i = 1; i < 3; i++) {
-            //     const img = data[i].image;
-            //     let slide = document.querySelector('.carousel-inner')
-                
-            //     slide.innerHTML += `
-            //     <div class="carousel-item">
-            //         <img src="https://artworks.thetvdb.com${img}"  class="d-block w-100" alt="...">
-            //         <div class="carousel-caption d-none d-md-block">
-            //         ${img}
-            //         </div>
-            //     </div>`                            
-            // }
-
-        //     let movieCard = document.querySelector("#movies");
-
-        //     for(let i=4 ; i< 20 ;i++){
-        //         movieCard.innerHTML +=`
-                
-        //             <div class="card" style="width: 18rem;">
-        //                 <img src="https://artworks.thetvdb.com${data[i].image}" class="card-img-top" alt="...">
-        //                 <div class="card-body">
-        //                     <h5 class="card-title">${data[i].name}</h5>
-        //                     <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-        //                     <a href="#" class="btn btn-primary">Go somewhere</a>
-        //                 </div>
-        //             </div>
-               
-        //         `
-        //     }
-
-           
-        
+                <div class="col-md-2 col-lg-2 d-flex align-items-stretch">
+                    <div class="card">   
+                        <div class="card-header">
+                            <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" id="${id}" onClick="tvSelected(${id})" alt="Card image">
+                        </div>  
+                        <div class="card-body">
+                            <h5 class="card-title">${title}</h5>
+                            <!-- <a class="card-title btn" id="${id}" onClick="tvSelected(${id})">${title}</a>  -->
+                            <div class="container">
+                                <div class="row">
+                                <!--   <div class="col-4 metadata">
+                                   <i class="fa fa-star" aria-hidden="true"></i> 
+                                    <p>9.5/10</p> 
+                                    </div>
+                                    <div class="col-8 metadata">Adventure. Sci-Fi</div>-->
+                                </div>
+                            </div>      
+                           <!-- <p class="card-text">${desc}</p>
+                            <a class="trailer-preview" href="https://youtu.be/ePbKGoIGAXY" target="new">
+                                <i class="fa fa-play" aria-hidden="true"></i>
+                                </a>  -->
+                        </div>
+                    </div>
+                </div>
+              
+                `
+            }
         // console.log(results.data[0])
 
     }
@@ -62,4 +118,218 @@ function getMovies(){
 });
 
 }
-getMovies()
+getLatestTV();
+
+
+function getPopularTV(){
+    fetch('https://api.themoviedb.org/3/tv/popular?api_key=0c961ffcf84c2043d100edeeab29551a' , {
+    "method": "GET",
+}).then((response) => {
+    console.log("resolve", response)
+    return response.json();
+}).then(
+    results => {
+        console.log("id is" + results.id)
+            // const data = results.data
+            // console.log(results.results)
+            let movieCard = document.querySelector(".popularTV"); 
+
+            for(let i=8 ; i< 14 ;i++){
+                // if(i==0 || i==3 | i==5 || i ==6){
+                //     continue
+                // }
+                const title = results.results[i].name;
+                const img = results.results[i].poster_path;
+                const desc = results.results[i].overview;
+                let id = results.results[i].id;
+                console.log("id =" + id)
+                movieCard.innerHTML +=`
+                
+                <div class="col-md-2 col-lg-2 d-flex align-items-stretch">
+                    <div class="card">   
+                        <div class="card-header">
+                            <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" id="${id}" onClick="tvSelected(${id})" alt="Card image">
+                        </div>  
+                        <div class="card-body">
+                            <h5 class="card-title">${title}</h5>
+                            <!-- <a class="card-title btn" id="${id}" onClick="tvSelected(${id})">${title}</a>  -->
+                            <div class="container">
+                                <div class="row">
+                                <!--   <div class="col-4 metadata">
+                                   <i class="fa fa-star" aria-hidden="true"></i> 
+                                    <p>9.5/10</p> 
+                                    </div>
+                                    <div class="col-8 metadata">Adventure. Sci-Fi</div>-->
+                                </div>
+                            </div>      
+                           <!-- <p class="card-text">${desc}</p>
+                            <a class="trailer-preview" href="https://youtu.be/ePbKGoIGAXY" target="new">
+                                <i class="fa fa-play" aria-hidden="true"></i>
+                                </a>  -->
+                        </div>
+                    </div>
+                </div>
+              
+                `
+            }
+        // console.log(results.data[0])
+
+    }
+).catch((err) => {
+    console.log('rejected', err)
+});
+
+}
+getPopularTV();
+
+
+
+function tvSelected(id){
+    sessionStorage.setItem('tvId',id);
+    window.location = "tv_details.html";
+    return false;
+}
+
+
+function getTVDetail(){
+    id = sessionStorage.getItem('tvId');
+    fetch(`https://api.themoviedb.org/3/tv/${id}?api_key=0c961ffcf84c2043d100edeeab29551a` , {
+        "method": "GET",
+    }).then((response) => {
+        console.log("resolve", response)
+        return response.json();
+    }).then(
+        results => {
+
+            console.log("tvId =" +id + " tvName = " +results.name);
+            // console.log("tvName =" +results.name);
+            
+            let tvDetails = document.querySelector(".tvDetails"); 
+            let title = results.name;
+            let img = results.backdrop_path;
+            img = `https://image.tmdb.org/t/p/original/${img}`
+            let desc = results.overview;
+            let genres = results.genres;
+            // let year = results.release_date.slice(0,4);
+            // let runtime = results.runtime;
+            let rating = results.vote_average;
+            // let website = results.homepage;
+            
+            // console.log("gener ==" + );
+            console.log(img);
+
+
+            // let background = document.getElementById('mainContainer');
+            // background.setAttribute('style',"background-image: url("+ img +");");
+
+            // let cover = document.querySelector('.tvDetails');
+            // cover.setAttribute('style',"background-image: url("+ img +");");
+
+            
+
+            // <li>${genres[1].name}&nbsp;&nbsp;&nbsp;|</li>
+
+            tvDetails.innerHTML +=`
+        <div class="card">   
+            <div class="card-header">
+                <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" id="${id}" onClick="movieSelected(${id})" alt="Card image">
+            </div>  
+            <div class="card-body">
+                <h4 class="card-title">${title}</h4>
+                <div class="container">
+                    <div class="row">
+                      <div class="col-4 metadata">
+                       <i class="fa fa-star" aria-hidden="true"></i> 
+                        <p>${rating}/10</p> 
+                        </div>
+                        <div class="col-8 metadata">${genres[0].name}. ${genres[1].name}</div>
+                    </div>
+                </div>      
+               <p class="card-text">${desc}</p>
+                <a class="trailer-preview" href="https://youtu.be/ePbKGoIGAXY" target="new">
+                    <i class="fa fa-play" aria-hidden="true"></i>
+                    </a>  
+            </div>
+        </div>
+            
+             `
+            //  <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
+                
+                // const data = results.data
+                console.log("id tv "+id)
+    
+    
+            // console.log(results.data[0])
+    
+        }
+    ).catch((err) => {
+        console.log('rejected', err)
+    });
+}
+getTVDetail();
+
+
+
+
+// <div id="left">
+//                     <h1>${title}</h1>
+//                     <div id="info">
+//                         <ul id="menu">
+//                     <!--    <li>${year}</li>
+//                         <li>${runtime} min</li> -->
+//                         <li>${genres[0].name}&nbsp;&nbsp;&nbsp;|</li>
+                        
+//                         </ul>
+//                     </div>
+//                     <div id="rating">
+//                         <h3>IMDb Rating:${rating}</h3>
+//                         <div id="container"></div>
+//                     </div>
+//                 </div>
+//                 <div id="right">
+//                     ${desc}
+//                     <div id="trailer">
+                        
+//                     <! --  <h4 location.href="${website}">VISIT WEBSITE <h4> -->
+//                     </div>
+//                  </div>
+
+
+
+
+
+
+// <a class="card-title btn" id="${id}" onClick="movieSelected(${id})">${title}</a> 
+// 
+
+
+
+
+
+
+
+
+
+
+
+            //     <div class="card" style="width: 18rem;">
+            //     <img src="https://image.tmdb.org/t/p/w500/${img}" class="card-img-top" alt="...">
+            //     <div class="card-body">
+            //         <h5 class="card-title">${title}</h5>
+            //         <p class="card-text">${desc}</p>
+            //         <a href="#" class="btn btn-primary">Go somewhere</a>
+            //     </div>
+            // </div>
+
+
+
+
+
+
+
+            
+
+
+
+
+            
