@@ -4,7 +4,7 @@ This is my first project with tuwaiq Bootcamp creating Movie DB.
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-created a website for exploring latest(updated) movies where all the content is displayed through API requests. each movie will have detalied description when clicked on. 
+created a website for exploring latest(updated) movies and TV shows where all the content is displayed through API requests. each movie/TV show will have detalied description when clicked on. 
 
 ## Built With
 - API : used TMDB API https://developers.themoviedb.org/3/getting-started/introduction
