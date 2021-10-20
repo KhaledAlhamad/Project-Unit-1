@@ -1,124 +1,31 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
+@import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great");
+
+
+/* navbar */
+.navbar-collapse{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.navbar-brand {
+    padding-left: 50px;
+    font-weight:700;
+    font-family: "Open Sans", sans-serif;
+    font-size:  1.35rem;
+    
+}
+.navbar-light .navbar-brand {
+    color: crimson;
+}
+
+.navbar-nav > li{
+    padding-left:15px;
+    padding-right:15px;
+  }
+
 /* -------------------- MovieCard---------------------------- */
 
-@import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
- @import url("https://fonts.googleapis.com/css?family=Fredericka+the+Great");
- body {
-	 background-color: #f8fafb;
-
-     /* background-color: white; */
-
-	 font-family: "Open Sans", sans-serif;
-	 /* padding-top: 10%; */
+.card-body{
+    font-family: 'Raleway Dots', sans-serif;
 }
- .col-md-5, .description {
-	 padding: 0;
-}
- .description {
-	 font-family: "Fredericka the Great", cursive;
-	 text-align: center;
-}
- .card-header, .metadata {
-	 background: none;
-	 padding: 0;
-	 position: relative;
-	 border-style: none;
-}
- .metadata {
-	 font-size: 16px;
-}
- .metadata i, .metadata p {
-	 float: left;
-}
- .metadata p {
-	 margin-top: 0;
-	 margin-left: 10px;
-}
- .metadata i {
-	 color: #ff9d00;
-	 margin-top: 5px;
-	 margin-left: 1px;
-}
- .card-img {
-	 -webkit-clip-path: inset(10% 0 20% 0);
-	 clip-path: inset(10% 0 20% 0);
-	 margin-top: -15%;
-}
- .card-body {
-	 position: relative;
-	 /* margin-top: -30%; */
-	 color: #9fa7a9;
-}
- .card-body .card-title {
-	 font-weight: 600;
-	 color: #414345;
-
-}
-
- .card-body .card-text {
-    margin-top: 8px;
-    font-weight: 600;
-    line-height: 30px;
-    height: 100px;
-    overflow-y: scroll;
-}
-
-/* ---------scroll style------------  */
-::-webkit-scrollbar {
-    width: 2px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    -webkit-border-radius: 10px;
-    border-radius: 10px;
-    background: rgba(255,0,0,0.8); 
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-}
-::-webkit-scrollbar-thumb:window-inactive {
-    background: rgba(255,0,0,0.4); 
-}
-/* -----------scroll style end!!------------- */
-
-
-
- .card, .trailer-preview {
-	 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
- .card:hover, .trailer-preview:hover {
-	 box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1), 0 8px 8px rgba(0, 0, 0, 0.18);
-}
- .card {
-	 border-radius: 8pt;
-	 border-style: none;
-	 overflow: hidden;
-	 transform: scale(0.8);
-	 margin-top: -60px;
-}
- .trailer-preview {
-	 background-color: #ff3d49;
-	 position: absolute;
-	 top: -46px;
-	 right: 24px;
-	 width: 80px;
-	 height: 80px;
-	 border-radius: 50%;
-	 color: white;
-	 font-size: 36px;
-	 text-align: center;
-	 padding-top: 13px;
-}
- .trailer-preview:hover, .trailer-preview:disabled, .trailer-preview:active, .trailer-preview:focus {
-	 background-color: #ff3d49;
-	 color: white;
-}
- .trailer-preview i {
-	 margin-left: 5px;
-}
- 

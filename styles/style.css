@@ -57,23 +57,7 @@ h3{
       height: 93vh;
   }
 
-/* .people{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
-/* #movies{
-    display: grid;
-    grid-template-columns: 100%;
-    margin-left: 50px; */
-    /* padding-bottom: 50px; */
-    /* margin-right: 50px;
-} */
-
-/* .card{
-    margin-bottom: 50px;
-} */
 
 @media screen and(max-width: 767){
     
@@ -81,13 +65,7 @@ h3{
 }
 
 @media screen and (min-width: 768px) {
-    /* #movies{
-        display: grid;
-        
-        grid-template-columns: 33.3% 33.3% 33.3%;
-        margin-left: 50px;
-        margin-right: 50px;
-    } */
+   
     .topMovie h2{
         display: grid;
         padding-left: 5vh;

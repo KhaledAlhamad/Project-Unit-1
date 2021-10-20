@@ -48,7 +48,6 @@ function getTopTV(){
               
                 `
             }
-        // console.log(results.data[0])
 
     }
 ).catch((err) => {
@@ -110,7 +109,6 @@ function getLatestTV(){
               
                 `
             }
-        // console.log(results.data[0])
 
     }
 ).catch((err) => {
@@ -130,8 +128,7 @@ function getPopularTV(){
 }).then(
     results => {
         console.log("id is" + results.id)
-            // const data = results.data
-            // console.log(results.results)
+            
             let movieCard = document.querySelector(".popularTV"); 
 
             for(let i=8 ; i< 14 ;i++){
@@ -172,7 +169,6 @@ function getPopularTV(){
               
                 `
             }
-        // console.log(results.data[0])
 
     }
 ).catch((err) => {
@@ -202,7 +198,8 @@ function getTVDetail(){
         results => {
 
             console.log("tvId =" +id + " tvName = " +results.name);
-            // console.log("tvName =" +results.name);
+
+            let cover = document.querySelector('.container');
             
             let tvDetails = document.querySelector(".tvDetails"); 
             let title = results.name;
@@ -213,113 +210,44 @@ function getTVDetail(){
             // let year = results.release_date.slice(0,4);
             // let runtime = results.runtime;
             let rating = results.vote_average;
-            // let website = results.homepage;
             
-            // console.log("gener ==" + );
-            console.log(img);
-
-
-            // let background = document.getElementById('mainContainer');
-            // background.setAttribute('style',"background-image: url("+ img +");");
-
-            // let cover = document.querySelector('.tvDetails');
-            // cover.setAttribute('style',"background-image: url("+ img +");");
-
-            
-
-            // <li>${genres[1].name}&nbsp;&nbsp;&nbsp;|</li>
 
             tvDetails.innerHTML +=`
-        <div class="card">   
-            <div class="card-header">
-                <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" id="${id}" onClick="movieSelected(${id})" alt="Card image">
-            </div>  
-            <div class="card-body">
-                <h4 class="card-title">${title}</h4>
-                <div class="container">
-                    <div class="row">
-                      <div class="col-4 metadata">
-                       <i class="fa fa-star" aria-hidden="true"></i> 
-                        <p>${rating}/10</p> 
-                        </div>
-                        <div class="col-8 metadata">${genres[0].name}. ${genres[1].name}</div>
+
+            <div class="container-fluid">
+                <div class="row" >
+                    <div class="col">
+                            <div class="card-header">
+                                <img class="card-img" src="https://image.tmdb.org/t/p/original/${img}" alt="Card image" style="height: 60vh;" >
+                            </div>  
+                            <div class="card-body">
+                                <h2 class="card-title" >${title}</h2>
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-4 metadata">
+                                        <i class="fa fa-star" aria-hidden="true">  ${rating}/10</i> 
+                                        <p></p>
+                                        </div>
+                                        <div class="col-8 metadata">${genres[0].name}</div>
+                                    </div>
+                                </div>      
+                                <p class="card-text">${desc}</p>
+                            </div>
                     </div>
-                </div>      
-               <p class="card-text">${desc}</p>
-                <a class="trailer-preview" href="https://youtu.be/ePbKGoIGAXY" target="new">
-                    <i class="fa fa-play" aria-hidden="true"></i>
-                    </a>  
+                </div>
             </div>
-        </div>
-            
+
              `
-            //  <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
                 
-                // const data = results.data
-                console.log("id tv "+id)
     
     
-            // console.log(results.data[0])
     
         }
     ).catch((err) => {
         console.log('rejected', err)
     });
 }
-// getTVDetail();
-
-
-
-
-// <div id="left">
-//                     <h1>${title}</h1>
-//                     <div id="info">
-//                         <ul id="menu">
-//                     <!--    <li>${year}</li>
-//                         <li>${runtime} min</li> -->
-//                         <li>${genres[0].name}&nbsp;&nbsp;&nbsp;|</li>
-                        
-//                         </ul>
-//                     </div>
-//                     <div id="rating">
-//                         <h3>IMDb Rating:${rating}</h3>
-//                         <div id="container"></div>
-//                     </div>
-//                 </div>
-//                 <div id="right">
-//                     ${desc}
-//                     <div id="trailer">
-                        
-//                     <! --  <h4 location.href="${website}">VISIT WEBSITE <h4> -->
-//                     </div>
-//                  </div>
-
-
-
-
-
-
-// <a class="card-title btn" id="${id}" onClick="movieSelected(${id})">${title}</a> 
-// 
-
-
-
-
-
-
-
-
-
-
-
-            //     <div class="card" style="width: 18rem;">
-            //     <img src="https://image.tmdb.org/t/p/w500/${img}" class="card-img-top" alt="...">
-            //     <div class="card-body">
-            //         <h5 class="card-title">${title}</h5>
-            //         <p class="card-text">${desc}</p>
-            //         <a href="#" class="btn btn-primary">Go somewhere</a>
-            //     </div>
-            // </div>
+getTVDetail();
 
 
 
@@ -332,4 +260,4 @@ function getTVDetail(){
 
 
 
-            
+         

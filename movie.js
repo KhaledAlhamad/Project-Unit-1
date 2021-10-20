@@ -58,8 +58,7 @@ function getMovieCard(){
     return response.json();
 }).then(
     results => {
-            // const data = results.data
-            // console.log(results.results)
+            
             let movieCard = document.querySelector(".movie"); 
 
             for(let i=0 ; i< 18 ;i++){
@@ -67,7 +66,7 @@ function getMovieCard(){
                 const img = results.results[i].poster_path;
                 const desc = results.results[i].overview;
                 let id = results.results[i].id;
-                // console.log("getMovieCard id =" + id)
+
                 movieCard.innerHTML +=`
                 
                 <div class="col-md-6 col-lg-4 d-flex align-items-stretch">
@@ -97,7 +96,6 @@ function getMovieCard(){
               
                 `
             }
-        // console.log(results.data[0])
 
     }
 ).catch((err) => {
@@ -127,7 +125,7 @@ function getMovieDetail(){
     }).then(
         results => {
             
-            let movieDetails = document.querySelector(".container"); 
+            let movieDetails = document.querySelector(".movieDetails"); 
             let title = results.original_title;
             let img = results.backdrop_path;
             img = `https://image.tmdb.org/t/p/original/${img}`
@@ -138,53 +136,32 @@ function getMovieDetail(){
             let rating = results.vote_average;
             let website = results.homepage;
             
-            // console.log("gener ==" + );
-
-
-            let background = document.getElementById('mainContainer');
-            background.setAttribute('style',"background-image: url("+ img +");");
-
-            let cover = document.querySelector('.container');
-            cover.setAttribute('style',"background-image: url("+ img +");");
-
-            
-
             movieDetails.innerHTML +=`
-                <div id="left">
-                    <h1>${title}</h1>
-                    <div id="info">
-                        <ul id="menu">
-                        <li>${year}</li>
-                        <li>${runtime} min</li>
-                        <li>${genres[0].name}&nbsp;&nbsp;&nbsp;|</li>
-                        <li>${genres[1].name}&nbsp;&nbsp;&nbsp;|</li>
-                        
-                        </ul>
-                    </div>
-                    <div id="rating">
-                        <h3>IMDb Rating:${rating}</h3>
-                        <div id="container"></div>
-                    </div>
+            <div class="container-fluid">
+            <div class="row" >
+                <div class="col">
+                        <div class="card-header">
+                            <img class="card-img" src="https://image.tmdb.org/t/p/original/${img}" alt="Card image" style="height: 60vh;" >
+                        </div>  
+                        <div class="card-body">
+                            <h2 class="card-title" >${title}</h2>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-4 metadata">
+                                    <i class="fa fa-star" aria-hidden="true">  ${rating}/10</i> 
+                                    <p></p>
+                                    </div>
+                                    <div class="col-8 metadata">${genres[0].name}</div>
+                                </div>
+                            </div>      
+                            <p class="card-text">${desc}</p>
+                        </div>
                 </div>
-                <div id="right">
-                ${desc}
-                <div id="trailer">
-                    
-                    <h4 location.href="${website}">VISIT WEBSITE <h4>
-                </div>
-                 </div>
-
-            
+            </div>
+        </div>
              
              `
-            //  <img class="card-img" src="https://image.tmdb.org/t/p/w500/${img}" alt="Card image">
-                
-                // const data = results.data
-                console.log("details "+website)
-    
-    
-            // console.log(results.data[0])
-    
+            
         }
     ).catch((err) => {
         console.log('rejected', err)
@@ -202,8 +179,7 @@ function getTop(){
     return response.json();
 }).then(
     results => {
-            // const data = results.data
-            // console.log(results.results)
+            
             let movieCard = document.querySelector(".topMovie"); 
 
             for(let i=0 ; i< 10 ;i++){
@@ -214,7 +190,7 @@ function getTop(){
                 const img = results.results[i].poster_path;
                 const desc = results.results[i].overview;
                 let id = results.results[i].id;
-                // console.log("getTop id =" + id)
+
                 movieCard.innerHTML +=`
                 
                 <div class="col-md-2 col-lg-2 d-flex align-items-stretch">
@@ -244,7 +220,6 @@ function getTop(){
               
                 `
             }
-        // console.log(results.data[0])
 
     }
 ).catch((err) => {
@@ -263,8 +238,7 @@ function getLatest(){
     return response.json();
 }).then(
     results => {
-            // const data = results.data
-            // console.log(results.results)
+            
             let movieCard = document.querySelector(".nowPlaying"); 
 
             for(let i=4 ; i< 10 ;i++){
@@ -275,7 +249,7 @@ function getLatest(){
                 const img = results.results[i].poster_path;
                 const desc = results.results[i].overview;
                 let id = results.results[i].id;
-                // console.log("getLatest id =" + id)
+
                 movieCard.innerHTML +=`
                 
                 <div class="col-md-2 col-lg-2 d-flex align-items-stretch">
@@ -305,7 +279,6 @@ function getLatest(){
               
                 `
             }
-        // console.log(results.data[0])
 
     }
 ).catch((err) => {
@@ -323,8 +296,8 @@ function getUpcoming(){
     return response.json();
 }).then(
     results => {
-            // const data = results.data
-            // console.log(results.results)
+           
+        
             let movieCard = document.querySelector(".upcoming"); 
 
             for(let i=8 ; i< 14 ;i++){
@@ -365,7 +338,6 @@ function getUpcoming(){
               
                 `
             }
-        // console.log(results.data[0])
 
     }
 ).catch((err) => {
@@ -424,30 +396,3 @@ getPeople();
 
 
 
-
-
-
-// <div id="left">
-//                     <h1>${title}</h1>
-//                     <div id="info">
-//                         <ul id="menu">
-//                     <!--    <li>${year}</li>
-//                         <li>${runtime} min</li> -->
-//                         <li>${genres[0].name}&nbsp;&nbsp;&nbsp;|</li>
-                        
-//                         </ul>
-//                     </div>
-//                     <div id="rating">
-//                         <h3>IMDb Rating:${rating}</h3>
-//                         <div id="container"></div>
-//                     </div>
-//                 </div>
-//                 <div id="right">
-//                     ${desc}
-//                     <div id="trailer">
-                        
-//                     <! --  <h4 location.href="${website}">VISIT WEBSITE <h4> -->
-//                     </div>
-//                  </div>
-
-            
